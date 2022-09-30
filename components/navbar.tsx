@@ -27,16 +27,25 @@ const Search = styled.input`
     padding: 5px;
 `
 
+const LinkNav = styled.a`
+    font-weight: bold;
+    &:hover,
+    :focus,
+    :active
+     {
+        color: lime;
+    }
+`
 export default function NavBar() {
     return (
         <Nav>
             <Logo>LazyDev</Logo>
             <ContainerNavLink>
                 <Link href="/">
-                    <a>Home</a>
+                    <LinkNav>Home</LinkNav>
                 </Link>
                 <Link href="/about">
-                    <a>About Us</a>
+                    <LinkNav>About</LinkNav>
                 </Link>
             </ContainerNavLink>
             <Search />
