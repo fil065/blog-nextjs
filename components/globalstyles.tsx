@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: 'Roboto Mono', monospace;
+    line-height: normal;
   } 
   
   #__next {
@@ -24,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
 
   * {
@@ -31,8 +33,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 700;
   }
 
 `

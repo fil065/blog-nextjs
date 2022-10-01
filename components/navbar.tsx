@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
+import { StyledLink } from './sharedstyles'
+import { RiAliensFill } from "react-icons/ri" 
 
 const Nav = styled.nav`
     width: 100%;
@@ -13,6 +15,8 @@ const Nav = styled.nav`
 const Logo = styled.h1`
     font-weight: bold;
     font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P';
 `
 
 const ContainerNavLink = styled.div`
@@ -27,25 +31,20 @@ const Search = styled.input`
     padding: 5px;
 `
 
-const LinkNav = styled.a`
-    font-weight: bold;
-    &:hover,
-    :focus,
-    :active
-     {
-        color: lime;
-    }
-`
 export default function NavBar() {
     return (
         <Nav>
-            <Logo>LazyDev</Logo>
+            <Link href="/">
+                <StyledLink>       
+                    <Logo>LazyDev</Logo>
+                </StyledLink>
+            </Link>
             <ContainerNavLink>
                 <Link href="/">
-                    <LinkNav>Home</LinkNav>
+                    <StyledLink>Home</StyledLink>
                 </Link>
                 <Link href="/about">
-                    <LinkNav>About</LinkNav>
+                    <StyledLink>About</StyledLink>
                 </Link>
             </ContainerNavLink>
             <Search />

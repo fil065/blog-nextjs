@@ -3,11 +3,12 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { StyledLink } from '../../components/sharedstyles'
 
 export const PostWrapper = styled.article`
 
 `
-export const TitlePost = styled.h2`
+export const TitlePost = styled.h1`
   font-weight: 700;
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -28,7 +29,6 @@ export const DescriptionPost = styled.div`
 
 export const Back = styled.div`
   margin-top: 2rem;
-  
   font-weight: 500;
 
   &:hover {
@@ -36,13 +36,16 @@ export const Back = styled.div`
     color: lime;
   }
 
-
 `
+const PostContainer = styled.div`
+  max-width: 50rem;
+`
+
 
 
 export default function Post({ postData, home }) {
   return (
-    <div>
+    <PostContainer>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -54,12 +57,12 @@ export default function Post({ postData, home }) {
       {!home && (
         <Back>
           <Link href="/">
-            <a><span>←</span> Back to home</a>
+            <StyledLink><span>←</span> Back to home</StyledLink>
           </Link>
         </Back>
       )}
 
-    </div>
+    </PostContainer>
   )
 }
 

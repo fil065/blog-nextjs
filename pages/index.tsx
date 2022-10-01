@@ -6,7 +6,7 @@ import Date from '../components/date'
 import styled from 'styled-components'
 
 
-const Heading2 = styled.h2`
+const Heading2 = styled.h1`
   margin-bottom: 2rem;
   font-size: 2rem;
   text-align: left;
@@ -14,11 +14,12 @@ const Heading2 = styled.h2`
 `
 const CardPostWrapper = styled.article`
   padding: 1rem;
-  border: 1px solid #777;
+  border: 1px solid lightgray;
   margin-bottom: 1rem;
   cursor: pointer;
 
   &:hover {
+    border: 1px solid lightgray;
     box-shadow: 2px 2px 5px lightgray;
   }
 `
@@ -31,6 +32,7 @@ const TitleCardPost = styled.a`
 
   &:hover {
     text-decoration: underline;
+    color: lime;
   }
 
 `

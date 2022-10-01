@@ -10,14 +10,19 @@ const FooterStyled = styled.footer`
 
 `
 const Copy = styled.p`
+    font-size: 1rem;
 
+    & > span {
+    font-size: 1.3rem;
+
+    }
 `
 
 export default function Footer() {
     return (
         <>
             <FooterStyled>
-                <Copy>&copy;LazyDev</Copy>
+                <Copy><span>&copy;</span>LazyDev</Copy>
             </FooterStyled>
         </>
     )
