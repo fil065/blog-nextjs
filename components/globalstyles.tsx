@@ -35,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
   h1 {
   }
 
+  ul {
+    
+  }
+
 `
 
 export default GlobalStyle

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import { StyledLink } from './sharedstyles'
-import { RiAliensFill } from "react-icons/ri" 
 
 const Nav = styled.nav`
     width: 100%;
@@ -20,7 +19,7 @@ const Logo = styled.h1`
 `
 
 const ContainerNavLink = styled.div`
-    & a:first-child {
+    & a:nth-last-child(n+2) {
         margin-right: 1rem;
     }
 `
@@ -45,6 +44,9 @@ export default function NavBar() {
                 </Link>
                 <Link href="/about">
                     <StyledLink>About</StyledLink>
+                </Link>
+                <Link href="/setup">
+                    <StyledLink>SetUp</StyledLink>
                 </Link>
             </ContainerNavLink>
             <Search />

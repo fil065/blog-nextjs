@@ -1,13 +1,19 @@
 import styled from 'styled-components'
 import Image from 'next/future/image'
 import profile from '../public/images/profile.jpg'
-import { Container, StyledLink } from '../components/sharedstyles'
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import Link from 'next/link';
 
-export const Title = styled.h1`
+export const ContainerAbout = styled.div`
+  padding: 0 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 50rem;
+`
+
+export const Title = styled.h3`
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 1rem;
   text-align: center;
 `
@@ -32,6 +38,7 @@ export const Description = styled.p`
   line-height: 1.5;
   font-size: 1.2rem;
   margin: 1rem 0;
+  margin-bottom: 4rem;
 `
 
 export const IconsWrapper = styled.div`
@@ -48,16 +55,27 @@ export const IconsWrapper = styled.div`
   }
 
 `
-const Search = styled.input`
-    border: 1px solid lightgray;
-    border-radius: 15px;
-    padding: 5px;
+
+const Heading2 = styled.h2`
+  font-size: 1.5rem;
+`
+
+const StyledStack = styled.ul`
+  font-size: 1.3rem;
+`
+const StyledLink = styled.a`
+    font-weight: bold;
+    transition: 0.2s;
+    &:hover
+     {
+        color: lime;
+    }
 `
 
 
 export default function About() {
   return (
-    <Container>
+    <ContainerAbout>
       <ImgWrapper>
         <StyledImage
           src={profile}
@@ -77,14 +95,25 @@ export default function About() {
           <StyledLink>
             <FaTwitter />
           </StyledLink>
-
         </Link>
       </IconsWrapper>
-      <Title>Lazy Fry</Title>
+      <Title>Fron End Developer</Title>
       <Description>
-        Lazy developers hate doing repetitive tasks. They easily get bored and want to end things quickly. One way to achieve this is using automation. There is some saying “you could have done the task in 6 minutes but instead, you automated it for 6 hours”. I think that’s only partially true. Because that 6 hours you make for automation will save you repetitive 6 minutes. Which if we sum that repetition, it could be more than 6 hours. And if you’re lazy you know which one’s better.
+        Lazy developers hate doing repetitive tasks. They easily get bored and want to end things quickly. One way to achieve this is using automation.
       </Description>
-
-    </Container>
+      <Heading2>Tech Stack</Heading2>
+      <StyledStack>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>TypeScript</li>
+        <li>Redux</li>
+        <li>CSS</li>
+        <li>Styled Components</li>
+        <li>Next JS</li>
+        <li>GraphQL</li>
+        <li>Node JS</li>
+      </StyledStack>
+      <br/>
+    </ContainerAbout>
   )
 }
