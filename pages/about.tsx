@@ -26,8 +26,8 @@ export const ImgWrapper = styled.span`
 const StyledImage = styled(Image)`
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid black;
-  box-shadow: 0 0 15px lightgray;
+  border: 2px solid ${({ theme }) => theme.color};
+  box-shadow: 0 0 15px ${({ theme }) => theme.shadow};
   padding: 2px;
 `
 
@@ -49,7 +49,6 @@ export const IconsWrapper = styled.div`
     color: lime;
   }
 
-
   & > a:nth-last-child(n+2) {
         margin-right: 0.3rem;
   }
@@ -61,7 +60,7 @@ const Heading2 = styled.h2`
 `
 
 const StyledStack = styled.ul`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 `
 const StyledLink = styled.a`
     font-weight: bold;

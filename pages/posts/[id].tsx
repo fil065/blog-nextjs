@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { StyledLink } from '../../components/sharedstyles'
 
 export const PostWrapper = styled.article`
 
@@ -57,7 +56,7 @@ export default function Post({ postData, home }) {
       {!home && (
         <Back>
           <Link href="/">
-            <StyledLink><span>←</span> Back to home</StyledLink>
+            <a><span>←</span> Back to home</a>
           </Link>
         </Back>
       )}

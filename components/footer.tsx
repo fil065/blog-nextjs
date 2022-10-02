@@ -6,8 +6,7 @@ const FooterStyled = styled.footer`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: lightgray;
-
+    background: ${({ theme }) => theme.background};
 `
 const Copy = styled.p`
     font-size: 1rem;

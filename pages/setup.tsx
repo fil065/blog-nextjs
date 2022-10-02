@@ -15,16 +15,16 @@ const Heading3 = styled.h3`
   font-size: 1.3rem;
 `
 const StyledList = styled.ul`
-  font-size: 1.2rem;
+  font-size: 1rem;
 `
 const BottomLine = styled.hr`
-  border: 1px solid lightgray;
+  border: 1px solid #9696963d;
   width: 100%;
   margin-bottom: 2rem;
 `
 export const StyledLink = styled.a`
     text-decoration: underline;
-    color: blue;
+    color: #5e5eff;
 
     &:hover
      {
@@ -35,7 +35,6 @@ export default function SetUp() {
     return (
         <Container>
             <Heading1>Set-Up</Heading1>
-            <br />
             <Heading3>Software</Heading3>
             <StyledList>
                 <Link href={'https://www.amazon.it/'}>
@@ -191,7 +190,7 @@ export default function SetUp() {
                 </li>
             </StyledList >
             <BottomLine />
-            <Heading3>VScode Extentions:</Heading3>
+            <Heading3>VScode Extentions</Heading3>
             <StyledList>
                 <Link href={'https://www.amazon.it/'}>
                     <li>
@@ -224,7 +223,7 @@ export default function SetUp() {
                 </Link>
             </StyledList>
             <BottomLine />
-            <Heading3>Chrome Extentions:</Heading3>
+            <Heading3>Chrome Extentions</Heading3>
             <StyledList>
                 <Link href={'https://www.amazon.it/'}>
                     <li>

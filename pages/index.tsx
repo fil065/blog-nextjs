@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import {Container } from '../components/sharedstyles'
+import { Container } from '../components/sharedstyles'
 import { getSortedPostsData } from '../lib/posts'
-import Date from '../components/date'
 import styled from 'styled-components'
-
+import { CardPostWrapper, TitleCardPost } from '../components/card'
+import Date from '../components/date'
 
 const Heading1 = styled.h1`
   margin-bottom: 2rem;
@@ -12,32 +12,22 @@ const Heading1 = styled.h1`
   text-align: left;
   font-weight: 700;
 `
-const CardPostWrapper = styled.article`
-  padding: 1rem;
-  border: 1px solid lightgray;
-  margin-bottom: 1rem;
-  cursor: pointer;
+const Tag = styled.a`
+display: flex;
+border: 1px solid black;
+width: fit-content;
+border-radius: 15px;
+padding: 5px;
+font-size: 10px;
+line-height: 5px;
 
-  &:hover {
-    border: 1px solid lightgray;
-    box-shadow: 2px 2px 5px lightgray;
-  }
-`
-
-const TitleCardPost = styled.a`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 8px;
-  font-weight: 600;
-
-  &:hover {
-    text-decoration: underline;
-    color: lime;
-  }
-
+&:hover {
+  background-color: lime;  
+}
 `
 
 export default function Home({ allPostsData }) {
+  console.log(allPostsData, 'allPostsData')
   return (
     <Container>
       <Head>
@@ -47,10 +37,13 @@ export default function Home({ allPostsData }) {
       </Head>
       <Heading1>Blog</Heading1>
       <div>
-        {allPostsData.map(({ id, date, title }) => (
-          <CardPostWrapper>
+        {allPostsData.map(({ id, date, title, tag }) => (
+          <CardPostWrapper key={id}>
             <Link href={`/posts/${id}`}>
               <TitleCardPost>{title}</TitleCardPost>
+            </Link>
+            <Link href={`/tag/${tag}`}>
+              <Tag key={tag}>#{tag}</Tag>
             </Link>
             <Date dateString={date} />
           </CardPostWrapper>
@@ -62,9 +55,12 @@ export default function Home({ allPostsData }) {
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
+  console.log(allPostsData, 'allPostsData')
+
   return {
     props: {
       allPostsData
     }
   }
 }
+

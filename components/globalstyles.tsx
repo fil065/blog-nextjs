@@ -1,19 +1,18 @@
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
-  /* font-family: 'Press Start 2P'; */
-  /* font-family: 'Noto Sans Mono', monospace; */
-  /*  font-weight: 900; */
-  /* font-family: 'Rubik Mono One', sans-serif; */
-  /* font-family: 'JetBrains Mono', monospace; */
-  /* font-weight: 800; */
+export const GlobalStyle = createGlobalStyle`
+* {
+    box-sizing: border-box;
+  }
+
   html,
   body {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.color};
     padding: 0;
     margin: 0;
     font-family: 'Roboto Mono', monospace;
     line-height: normal;
+    background: ${({ theme }) => theme.background};
   } 
   
   #__next {
@@ -22,22 +21,32 @@ const GlobalStyle = createGlobalStyle`
   min-height: 100vh;
 }
 
-  a {
+p {
+  color: ${({ theme }) => theme.color};
+}
+
+h1 {
+  color: ${({ theme }) => theme.color};
+}
+
+h2 {
+  color: ${({ theme }) => theme.color};
+}
+
+a {
     color: inherit;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  * {
-    box-sizing: border-box;
-  }
+a:active {
+    color: ${({ theme }) => theme.primary};
+}
 
-  h1 {
-  }
+a:focus {
+    color: ${({ theme }) => theme.primary};
+}
 
-  ul {
-    
-  }
 
 `
 

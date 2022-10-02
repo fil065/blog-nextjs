@@ -3,19 +3,21 @@ import { ThemeProvider, DefaultTheme } from 'styled-components'
 import GlobalStyle from '../components/globalstyles'
 import '../styles/reset.css';
 import Layout from '../components/layout';
+import { useState } from 'react';
+import { FiSun, FiMoon } from "react-icons/fi";
+import { lightTheme, darkTheme } from '../utils/theme';
 
-const theme: DefaultTheme = {
-  colors: {
-    primary: '#111',
-    secondary: '#0070f3',
-  },
-}
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }) {
+  
+  const [theme, setTheme] = useState(lightTheme);
+  const toggleTheme = () => { theme === lightTheme ? setTheme(darkTheme) : setTheme(lightTheme) }
+  const icon = theme === lightTheme ? <FiMoon size={26} /> : <FiSun size={26} />
+  
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme === lightTheme ? lightTheme : darkTheme}>
         <GlobalStyle />
-      <Layout>
+      <Layout toggleTheme={toggleTheme} icon={icon}>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>

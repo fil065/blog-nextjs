@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
-import { StyledLink } from './sharedstyles'
+import { StyledLink, StyledNavLink } from './sharedstyles'
 
 const Nav = styled.nav`
     width: 100%;
@@ -9,7 +9,7 @@ const Nav = styled.nav`
     align-items: center;
     justify-content: space-around;
     border-bottom: 1px solid lightgray;
-    box-shadow: 1px 1px 3px lightgray;
+    box-shadow: 1px 1px 3px ${({ theme }) => theme.shadow};
 `
 const Logo = styled.h1`
     font-weight: bold;
@@ -23,33 +23,62 @@ const ContainerNavLink = styled.div`
         margin-right: 1rem;
     }
 `
+const ContainerSearch = styled.div`
+    display: flex;
+    align-items: center;
+`
 
 const Search = styled.input`
     border: 1px solid lightgray;
-    border-radius: 15px;
-    padding: 5px;
+    border-radius: 2rem;
+    padding: 0.9rem;
 `
 
-export default function NavBar() {
+export const Toggler = styled.button`
+display: flex;
+margin-left: 1.5rem;
+width: 35px;
+height: 35px;
+align-items: center;
+justify-content: center;
+color: ${props => props.theme.color};
+background-color: transparent;
+transition: all ${props => props.theme.transitionTime};
+border: none;
+outline: none;
+cursor: pointer;
+@media (max-width: 768px) {
+  top: 5px;
+  right:50%;
+  transform: translate(50%, 0%);
+}
+`;
+
+
+export default function NavBar({ toggleTheme, icon }) {
+
     return (
         <Nav>
             <Link href="/">
-                <StyledLink>       
+                <StyledNavLink>
                     <Logo>LazyDev</Logo>
-                </StyledLink>
+                </StyledNavLink>
             </Link>
             <ContainerNavLink>
-                <Link href="/">
-                    <StyledLink>Home</StyledLink>
-                </Link>
-                <Link href="/about">
-                    <StyledLink>About</StyledLink>
-                </Link>
-                <Link href="/setup">
-                    <StyledLink>SetUp</StyledLink>
-                </Link>
+                <StyledLink href="/">
+                    <StyledNavLink>Home</StyledNavLink>
+                </StyledLink>
+                <StyledLink href="/about">
+                    <StyledNavLink>About</StyledNavLink>
+                </StyledLink>
+                <StyledLink href="/setup">
+                    <StyledNavLink>SetUp</StyledNavLink>
+                </StyledLink>
             </ContainerNavLink>
-            <Search />
+            <ContainerSearch>
+                <Search type="text" placeholder="Search.." />
+                <Toggler onClick={toggleTheme}>{icon}</Toggler>
+            </ContainerSearch>
         </Nav>
     )
 }
