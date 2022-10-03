@@ -3,6 +3,7 @@ import Image from 'next/future/image'
 import profile from '../public/images/profile.jpg'
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import Link from 'next/link';
+import Tags from '../components/tags';
 
 export const ContainerAbout = styled.div`
   padding: 0 1rem;
@@ -52,17 +53,13 @@ export const IconsWrapper = styled.div`
   & > a:nth-last-child(n+2) {
         margin-right: 0.3rem;
   }
-
 `
 
-const Heading2 = styled.h2`
-  font-size: 1.5rem;
+const StyledStack = styled.div`
+  display: flex;
+  justify-content: center;
 `
-
-const StyledStack = styled.ul`
-  font-size: 1.2rem;
-`
-const StyledLink = styled.a`
+const IconLink = styled.a`
     font-weight: bold;
     transition: 0.2s;
     &:hover
@@ -73,6 +70,9 @@ const StyledLink = styled.a`
 
 
 export default function About() {
+
+  const tags = ['JavaScript', 'React', 'TypeScript', 'Redux', 'CSS', 'Styled Components', 'NextJS', 'NodeJS']
+
   return (
     <ContainerAbout>
       <ImgWrapper>
@@ -86,33 +86,25 @@ export default function About() {
       </ImgWrapper>
       <IconsWrapper>
         <Link href='https://github.com/fil065'>
-          <StyledLink>
+          <IconLink>
             <FaGithub />
-          </StyledLink>
+          </IconLink>
         </Link>
         <Link href='https://twitter.com/'>
-          <StyledLink>
+          <IconLink>
             <FaTwitter />
-          </StyledLink>
+          </IconLink>
         </Link>
       </IconsWrapper>
       <Title>Fron End Developer</Title>
       <Description>
         Lazy developers hate doing repetitive tasks. They easily get bored and want to end things quickly. One way to achieve this is using automation.
       </Description>
-      <Heading2>Tech Stack</Heading2>
       <StyledStack>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>TypeScript</li>
-        <li>Redux</li>
-        <li>CSS</li>
-        <li>Styled Components</li>
-        <li>Next JS</li>
-        <li>GraphQL</li>
-        <li>Node JS</li>
+          <Tags tags={tags}/>
       </StyledStack>
       <br/>
     </ContainerAbout>
   )
 }
+

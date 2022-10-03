@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import styled from 'styled-components'
 import Link from 'next/link'
+import Tags from '../../components/tags'
 
 export const PostWrapper = styled.article`
 
@@ -10,7 +11,7 @@ export const PostWrapper = styled.article`
 export const TitlePost = styled.h1`
   font-weight: 700;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 `
 export const DescriptionPost = styled.div`
   margin-top: 3rem;
@@ -49,8 +50,9 @@ export default function Post({ postData, home }) {
         <title>{postData.title}</title>
       </Head>
       <PostWrapper>
-        <TitlePost>{postData.title}</TitlePost>
         <Date dateString={postData.date} />
+        <TitlePost>{postData.title}</TitlePost>
+        <Tags tags={postData.tag}></Tags>
         <DescriptionPost dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </PostWrapper>
       {!home && (
